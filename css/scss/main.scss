@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:500&display=swap');
+
+$colors: (
+  grey: #d3d3d3,
+  white: #fff
+);
+
+$font-stack: "Open Sans", sans-serif;
+
+$padding: 20px;
+
+@function returnColor($chosenColor) {
+  @return map-get($colors, $chosenColor);
+}
+
+
+body, html {
+  margin: 0;
+  background-color: returnColor(grey);
+}
+
+.container {
+  width: 70%;
+  height: 500px;
+  background-color: returnColor(white);
+  box-shadow: 3px 5px darken(returnColor(grey), 30%);
+  margin: 20% auto;
+
+
+  .textEditor {
+    width: 100%;
+    height: 100%;
+
+    .modifyBtns {
+      display: flex;
+      justify-content: flex-start;
+      border-bottom: 1px solid returnColor(grey);
+      margin: 0 20px;
+      padding: $padding 0;
+      font-weight: bold;
+      li {
+        list-style: none;
+        padding: 0 $padding;
+
+        button {
+          border: none;
+          background: none;
+          font-family: $font-stack;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            background-color: returnColor(grey);
+          }
+        }
+      }
+    }
+
+    .textEntered {
+      margin: 5%;
+      margin-bottom: 0;
+      height: 83%;
+      font-family: $font-stack;
+      outline: 0 solid transparent;
+    }
+  }
+}
